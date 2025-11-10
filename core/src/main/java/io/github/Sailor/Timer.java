@@ -1,16 +1,16 @@
 package io.github.Sailor;
 
-public Timer
+public class Timer
 {	
 	
 	
 	public double timeRemaining;
 	private double timeMaximum;
-	private double timeScale
+	private double timeScale;
 	private boolean finished;
 	private boolean repeat;
 	//Subscribers 
-	public Timer(double maxTime, double tScale, boolena shouldRepeat)
+	public Timer(double maxTime, double tScale, boolean shouldRepeat)
 	{
 		timeMaximum = maxTime;
 		timeRemaining = timeMaximum;

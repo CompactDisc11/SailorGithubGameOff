@@ -22,11 +22,14 @@ public class TextRenderer
 	
 	
 	
-	private double progress = 0.0;
+	private double progress = 1.0;
+	private double prevTime = 0.0;
 	private int lextLength;
-	private int currentCharacter;
+	private int currentCharacter = 0;
 	private int x;
 	private int y;
+	
+	private double timeScale = 1.0;
 	public TextRenderer(String fontPath, int newX, int newY)
 	{	
 		
@@ -56,17 +59,24 @@ public class TextRenderer
 	}
 	
 	public void update(double dt)
-	{
-		displayText += finalText[currentCharacter];
-		currentCharacter = (int)progress;
+	{	
+		currentCharacter = (int)(progress/timeScale);
+		if (progress-prevTime >= timeScale && currentCharacter<=finalText.length())
+		{
+			displayText += finalText.charAt(currentCharacter-1);
+			prevTime = progress;
+			System.out.println("Progress: "+currentCharacter);
+		}
+
 		progress += dt;
+
 	}
 	public void draw(SpriteBatch batch)
 	{
 		
 	
 		font.draw(batch, displayText, this.x, this.y);
-		System.out.println("Position: " + this.x + " "+ (this.y));
+		
 	 
 		
 	}

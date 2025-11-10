@@ -27,7 +27,7 @@ public class Main extends ApplicationAdapter {
     public void render() {
 		
 		
-		double dt = 1.0/60.0;
+		double dt = 1/60;
 		tb.Update(dt);
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
